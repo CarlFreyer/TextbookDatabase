@@ -1,0 +1,85 @@
+body{
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    height: 40px;
+    width: 50vw;
+    max-width: 1000px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    flex-direction:  row;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar{
+    position: absolute;
+    width: 100vw;
+    height: 50px;
+    display: inline-flex;
+    flex-direction:  row;
+    align-items: center;
+    justify-content: center;
+    background-color: #582d0f;
+    color: white;
+}
+
+.formCon {
+    margin-top: 70px;
+    margin-left: 2.5vw;
+    width: 95vw;
+    display: inline-flex;
+    flex-direction:  row;
+    align-items: center;
+    justify-content: center;
+    border: black solid 1px;
+    border-radius: 5px;
+}
+
+input{
+    height: 30px;
+    width: 30vw;
+    max-width: 500px;
+    border: black solid 1px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.submit{
+    width: 5vw;
+    min-width: 70px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: none;
+    cursor: pointer;
+}
+.submit:hover{
+    background-color: #582d0f;
+    color: white;
+}
+
+.tableCon{
+    display: grid;
+    grid-template-columns: repeat(2, 46.25vw);
+    column-gap: 2.5vw;
+    width: 95vw;
+    margin-top: 30px;
+    margin-left: 2.5vw;
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 5px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px #000000;
+}
+tr {
+    border: black solid 1px;
+}

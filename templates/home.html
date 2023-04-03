@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Textbook Information</title>
+</head>
+<body>
+    <div id="navbar"><h3>Textbook Diversity Database</h3></div>
+    <div class="formCon">
+    <form action="/search" method="post">
+        <input type="text" name="textbook_id" class="searchbar" placeholder="Textbook Search"/><br>
+        <input type="submit" value="Submit" class="submit">
+    </form>
+    <br>
+    <br>
+    <form action="/searchClass" method="post">
+        <input type="text" name="class_id" class="searchbar" placeholder="Class Search"/><br>
+        <input type="submit" value="Submit" class="submit">
+    </form>
+    </div>
+    <div class="tableCon">
+        <table>
+            <tr>
+                <th><h3>Highest Price</h3></th>
+            </tr>
+            <tr>
+                <th><p>Textbook</p></th>
+                <th><p>Hard Cover New Price</p></th>
+            </tr>
+             {% for textbook in textbooks %}
+            <tr>
+                <th>
+                    <p>{{textbook.textbook_title}}</p>
+                </th>
+                <th>
+                    <p>{{textbook.textbook_author}}</p>
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
+    <table>
+        <tr>
+            <th><h3>Most Female Authors</h3></th>
+        </tr>
+        <tr>
+            <th><p>Textbook</p></th>
+            <th><p># of Female Authors</p></th>
+        </tr>
+         {% for textbook in textbooks %}
+        <tr>
+            <th>
+                <p>{{textbook.textbook_title}}</p>
+            </th>
+            <th>
+                <p>{{textbook.textbook_author}}</p>
+            </th>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</body>
+</html>

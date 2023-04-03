@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Textbook Information</title>
+</head>
+<body>
+    <div id="navbar"><h3>Textbook Diversity Database</h3></div>
+    <div class="formCon">
+    <form action="/search" method="post">
+        <input type="text" name="textbook_id" class="searchbar" placeholder="Textbook Search"/><br>
+        <input type="submit" value="Submit" class="submit">
+    </form>
+    <br>
+    <br>
+    <form action="/searchClass" method="post">
+        <input type="text" name="class_id" class="searchbar" placeholder="Class Search"/><br>
+        <input type="submit" value="Submit" class="submit">
+    </form>
+    </div> 
+    <h1>{{ textbook_id }}</h1>
+    <p>Was not found.<br> Sorry :(<br> <a href="./home">Search again?</a></p>
+</body>
+</html>
