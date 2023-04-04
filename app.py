@@ -8,7 +8,7 @@ def home():
     conn = sqlite3.connect('maintextbooks.db')
     c = conn.cursor()
     c.execute('SELECT * FROM textbooks')
-    textbooks = [{'textbook_id': row[0], 'textbook_title': row[1], 'textbook_description': row[2]} for row in c.fetchall()]
+    textbooks = [{'isbn': row[0], 'title': row[1], 'course': row[2]} for row in c.fetchall()]
     conn.close()
     return render_template('home.html', textbooks=textbooks)
 
@@ -18,7 +18,7 @@ def search():
         textbook_id = request.form['textbook_id']
         conn = sqlite3.connect('maintextbooks.db')
         c = conn.cursor()
-        c.execute('SELECT * FROM textbooks WHERE textbook_title = ?', (textbook_id,))
+        c.execute('SELECT * FROM textbooks WHERE title = ?', (textbook_id,))
         textbooks = [{'textbook_id': row[0], 'textbook_title': row[1], 'textbook_description': row[2]} for row in c.fetchall()]
         conn.close()
         if len(textbooks) is not 0:
@@ -32,8 +32,8 @@ def classsearch():
         textbook_id = request.form['class_id']
         conn = sqlite3.connect('maintextbooks.db')
         c = conn.cursor()
-        c.execute('SELECT * FROM textbooks WHERE textbook_title = ?', (textbook_id,))
-        textbooks = [{'textbook_id': row[0], 'textbook_title': row[1], 'textbook_description': row[2]} for row in c.fetchall()]
+        c.execute('SELECT * FROM textbooks WHERE course = ?', (textbook_id,))
+        textbooks = [{'isbn': row[0], 'title': row[1], 'course': row[2]} for row in c.fetchall()]
         conn.close()
         if len(textbooks) is not 0:
             return render_template('search.html', textbooks=textbooks)
@@ -48,7 +48,7 @@ def click():
         return render_template('notFound.html', textbook_id=textbook_id)
     conn = sqlite3.connect('maintextbooks.db')
     c = conn.cursor()
-    c.execute('SELECT * FROM textbooks WHERE textbook_title = ?', (textbook_id,))
+    c.execute('SELECT * FROM textbooks WHERE title = ?', (textbook_id,))
     row = c.fetchone()
     conn.close()
     if row is not None:
