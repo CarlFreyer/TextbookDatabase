@@ -21,7 +21,7 @@ def search():
         c.execute('SELECT * FROM textbooks WHERE textbook_title = ?', (textbook_id,))
         textbooks = [{'textbook_id': row[0], 'textbook_title': row[1], 'textbook_description': row[2]} for row in c.fetchall()]
         conn.close()
-        if len(textbooks) is not 0:
+        if len(textbooks) != 0:
             return render_template('search.html', textbooks=textbooks)
         else:
             return render_template('notFound.html', textbook_id=textbook_id)
@@ -35,7 +35,7 @@ def classsearch():
         c.execute('SELECT * FROM textbooks WHERE textbook_title = ?', (textbook_id,))
         textbooks = [{'textbook_id': row[0], 'textbook_title': row[1], 'textbook_description': row[2]} for row in c.fetchall()]
         conn.close()
-        if len(textbooks) is not 0:
+        if len(textbooks) != 0:
             return render_template('search.html', textbooks=textbooks)
         else:
             return render_template('notFound.html', textbook_id=textbook_id)
