@@ -38,7 +38,7 @@ def course():
         textbook_id = request.form['class_id']
         conn = sqlite3.connect('maintextbooks.db')
         c = conn.cursor()
-        c.execute('SELECT title, course, isbn FROM textbooks WHERE title = ?', (textbook_id,))
+        c.execute('SELECT title, course, isbn FROM textbooks WHERE course = ?', (textbook_id,))
         textbooks = [{'title': row[0], 'course': row[1], 'isbn': row[2]} for row in c.fetchall()]
         conn.close()
         if len(textbooks) is not 0:
