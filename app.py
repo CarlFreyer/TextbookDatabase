@@ -18,22 +18,22 @@ def search():
         textbook_id = request.form['textbook_id']
         conn = sqlite3.connect('maintextbooks.db')
         c = conn.cursor()
-        c.execute('SELECT title, course FROM textbooks WHERE course = ?', (textbook_id,))
-        textbooks = [{'title': row[0], 'course': row[1]} for row in c.fetchall()]
+        c.execute('SELECT title, course, isbn FROM textbooks WHERE title = ?', (textbook_id,))
+        textbooks = [{'title': row[0], 'course': row[1], 'isbn': row[2]} for row in c.fetchall()]
         conn.close()
         if len(textbooks) is not 0:
             return render_template('search.html', textbooks=textbooks)
         else:
             return render_template('notFound.html', textbook_id=textbook_id)
 
-@app.route('/classSearch', methods=['GET', 'POST'])
-def classsearch():
+@app.route('/course', methods=['GET', 'POST'])
+def course():
     if request.method == "POST":
         textbook_id = request.form['class_id']
         conn = sqlite3.connect('maintextbooks.db')
         c = conn.cursor()
-        c.execute('SELECT title, course FROM textbooks WHERE course = ?', (textbook_id,))
-        textbooks = [{'title': row[0], 'course': row[1]} for row in c.fetchall()]
+        c.execute('SELECT title, course, isbn FROM textbooks WHERE title = ?', (textbook_id,))
+        textbooks = [{'title': row[0], 'course': row[1], 'isbn': row[2]} for row in c.fetchall()]
         conn.close()
         if len(textbooks) is not 0:
             return render_template('search.html', textbooks=textbooks)
