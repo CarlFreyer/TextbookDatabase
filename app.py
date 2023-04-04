@@ -7,7 +7,7 @@ app = Flask(__name__)
 def home():
     conn = sqlite3.connect('maintextbooks.db')
     c = conn.cursor()
-    c.execute('SELECT * FROM textbooks where textbook_title = "hello"')
+    c.execute('SELECT * FROM textbooks')
     textbooks = [{'textbook_id': row[0], 'textbook_title': row[1], 'textbook_description': row[2]} for row in c.fetchall()]
     conn.close()
     return render_template('home.html', textbooks=textbooks)

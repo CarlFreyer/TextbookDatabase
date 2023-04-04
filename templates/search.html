@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Textbook Information</title>
+</head>
+<body>
+    <div id="navbar"><h3><a class="navURL" href="./">Textbook Diversity Database</a></h3></div>
+    <div class="formCon">
+    <form action="/search" method="post">
+        <input type="text" name="textbook_id" class="searchbar" placeholder="Textbook Search"/><br>
+        <input type="submit" value="Submit" class="submit">
+    </form>
+    <br>
+    <br>
+    <form action="/searchClass" method="post">
+        <input type="text" name="class_id" class="searchbar" placeholder="Class Search"/><br>
+        <input type="submit" value="Submit" class="submit">
+    </form>
+    </div> 
+    <div class="searchCon">
+    <table id="searchTable">
+        <tr class="head">
+            <th></th>
+            <th class="head"><h3>Textbooks Found</h3></th>
+            <th></th>
+        </tr>
+        <tr class="top">
+            <th><h4>Textbook</h4></th>
+            <th><h4>Author</h4></th>
+            <th><h4>Description</h4></th>
+        </tr>
+         {% for textbook in textbooks %}
+        <tr>
+            <th>
+                <p><a href="/textbook?bookName={{textbook.textbook_title}}">{{textbook.textbook_title}}</a></p>
+            </th>
+            <th>
+                <p>{{textbook.textbook_author}}</p>
+            </th>
+            <th>
+                <p>{{textbook.textbook_description}}</p>
+            </th>
+        </tr>
+        {% endfor %}
+    </div>
+</body>
+</html>
