@@ -21,12 +21,12 @@
     </div>
     <div class="tableCon">
         <table>
-            <tr>
-                <th><h3>Highest Price</h3></th>
+            <tr class="head">
+                <th class="head"><h3>Highest Price</h3></th>
             </tr>
-            <tr>
-                <th><p>Textbook</p></th>
-                <th><p>Hard Cover New Price</p></th>
+            <tr class="top">
+                <th><h4>Textbook</h4></th>
+                <th><h4>Hard Cover New Price</h4></th>
             </tr>
              {% for textbook in textbooks %}
             <tr>
@@ -40,12 +40,12 @@
             {% endfor %}
         </table>
     <table>
-        <tr>
-            <th><h3>Most Female Authors</h3></th>
+        <tr class="head">
+            <th class="head"><h3>Most Female Authors</h3></th>
         </tr>
-        <tr>
-            <th><p>Textbook</p></th>
-            <th><p># of Female Authors</p></th>
+        <tr class="top">
+            <th><h4>Textbook</h4></th>
+            <th><h4># of Female Authors</h4></th>
         </tr>
          {% for textbook in textbooks %}
         <tr>

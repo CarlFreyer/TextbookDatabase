@@ -38,8 +38,6 @@ form {
     flex-direction:  row;
     align-items: center;
     justify-content: center;
-    border: black solid 1px;
-    border-radius: 5px;
 }
 
 input{
@@ -74,12 +72,30 @@ input{
     margin-left: 2.5vw;
 }
 
+.head{
+    background-color: #582d0f;
+    color: white;
+    border-bottom: none !important;
+}
+
+.top{
+    border-top: none !important;
+}
+
 table {
     border-collapse: collapse;
-    border-radius: 5px;
-    border-style: hidden;
-    box-shadow: 0 0 0 1px #000000;
+    background-color: #582d0f;
 }
+
 tr {
-    border: black solid 1px;
+    border: white solid 8px;
+    background-color: #DDDDDD;
+}
+
+th{
+    font-weight: normal !important;
+}
+
+h4{
+    font-weight: bolder !important;
 }
