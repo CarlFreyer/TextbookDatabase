@@ -31,10 +31,10 @@
              {% for textbook in textbooks %}
             <tr>
                 <th>
-                    <p><a href="/textbook?bookName={{textbook.textbook_title}}">{{textbook.textbook_title}}</a></p>
+                    <p><a href="/textbook?bookName={{textbook.title}}">{{textbook.title}}</a></p>
                 </th>
                 <th>
-                    <p>{{textbook.textbook_author}}</p>
+                    <p>{{textbook.course}}</p>
                 </th>
             </tr>
             {% endfor %}
@@ -50,52 +50,52 @@
              {% for textbook in textbooks %}
             <tr>
                 <th>
-                    <p><a href="/textbook?bookName={{textbook.textbook_title}}">{{textbook.textbook_title}}</a></p>
+                    <p><a href="/textbook?bookName={{textbook.title}}">{{textbook.title}}</a></p>
                 </th>
                 <th>
-                    <p>{{textbook.textbook_author}}</p>
+                    <p>{{textbook.course}}</p>
                 </th>
             </tr>
             {% endfor %}
         </table>
-    <table>
-        <tr class="head">
-            <th class="head"><h3>Most Female Authors</h3></th>
-        </tr>
-        <tr class="top">
-            <th><h4>Textbook</h4></th>
-            <th><h4># of Female Authors</h4></th>
-        </tr>
-         {% for textbook in textbooks %}
-        <tr>
-            <th>
-                <p><a href="/textbook?bookName={{textbook.textbook_title}}">{{textbook.textbook_title}}</a></p>
-            </th>
-            <th>
-                <p>{{textbook.textbook_author}}</p>
-            </th>
-        </tr>
-        {% endfor %}
-    </table>
-    <table>
-        <tr class="head">
-            <th class="head"><h3>Highest Cost</h3></th>
-        </tr>
-        <tr class="top">
-            <th><h4>Textbook</h4></th>
-            <th><h4>Hardcover-New Cost</h4></th>
-        </tr>
-         {% for textbook in textbooks %}
-        <tr>
-            <th>
-                <p><a href="/textbook?bookName={{textbook.textbook_title}}">{{textbook.textbook_title}}</a></p>
-            </th>
-            <th>
-                <p>{{textbook.textbook_author}}</p>
-            </th>
-        </tr>
-        {% endfor %}
-    </table>
+        <table>
+            <tr class="head">
+                <th class="head"><h3>Most Female Authors</h3></th>
+            </tr>
+            <tr class="top">
+                <th><h4>Textbook</h4></th>
+                <th><h4># of Female Authors</h4></th>
+            </tr>
+             {% for textbook in textbooks %}
+            <tr>
+                <th>
+                    <p><a href="/textbook?bookName={{textbook.title}}">{{textbook.title}}</a></p>
+                </th>
+                <th>
+                    <p>{{textbook.course}}</p>
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
+        <table>
+            <tr class="head">
+                <th class="head"><h3>Most Female Authors</h3></th>
+            </tr>
+            <tr class="top">
+                <th><h4>Textbook</h4></th>
+                <th><h4># of Female Authors</h4></th>
+            </tr>
+             {% for textbook in textbooks %}
+            <tr>
+                <th>
+                    <p><a href="/textbook?bookName={{textbook.title}}">{{textbook.title}}</a></p>
+                </th>
+                <th>
+                    <p>{{textbook.course}}</p>
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
 </body>
 </html>
