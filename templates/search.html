@@ -28,19 +28,17 @@
         </tr>
         <tr class="top">
             <th><h4>Textbook</h4></th>
-            <th><h4>Author</h4></th>
-            <th><h4>Description</h4></th>
+            <th><h4>Course</h4></th>
         </tr>
          {% for textbook in textbooks %}
         <tr>
             <th>
-                <p><a href="/textbook?bookName={{textbook.textbook_title}}">{{textbook.textbook_title}}</a></p>
+                <p><a href="/textbook?bookName={{textbook.textbook_title}}">{{textbook.title}}</a></p>
             </th>
             <th>
-                <p>{{textbook.textbook_author}}</p>
+                <p>{{textbook.course}}</p>
             </th>
             <th>
-                <p>{{textbook.textbook_description}}</p>
             </th>
         </tr>
         {% endfor %}
