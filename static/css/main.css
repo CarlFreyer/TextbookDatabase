@@ -30,6 +30,24 @@ form {
     color: white;
 }
 
+.navURL{
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navURL:hover{
+    color: white;
+}
+
+a {
+    color: black;
+}
+
+a:hover{
+    color: #999999;
+}
+
 .formCon {
     margin-top: 70px;
     margin-left: 2.5vw;
@@ -70,6 +88,17 @@ input{
     width: 95vw;
     margin-top: 30px;
     margin-left: 2.5vw;
+}
+
+.searchCon{
+    display: block;
+    width: 95vw;
+    margin-top: 30px;
+    margin-left: 2.5vw;
+}
+
+#searchTable{
+    width: 100%;
 }
 
 .head{

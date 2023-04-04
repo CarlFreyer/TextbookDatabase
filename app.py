@@ -19,12 +19,10 @@ def search():
         conn = sqlite3.connect('maintextbooks.db')
         c = conn.cursor()
         c.execute('SELECT * FROM textbooks WHERE textbook_title = ?', (textbook_id,))
-        row = c.fetchone()
+        textbooks = [{'textbook_id': row[0], 'textbook_title': row[1], 'textbook_description': row[2]} for row in c.fetchall()]
         conn.close()
-        if row is not None:
-            textbook_title = row[1]
-            textbook_description = row[2]
-            return render_template('textbook.html', textbook_id=textbook_id, textbook_title=textbook_title, textbook_description=textbook_description)
+        if textbooks is not None:
+            return render_template('search.html', textbooks=textbooks)
         else:
             return render_template('notFound.html', textbook_id=textbook_id)
 
@@ -41,7 +39,7 @@ def searchClass():
         if row is not None:
             textbook_title = row[1]
             textbook_description = row[2]
-            return render_template('textbook.html', textbook_id=textbook_id, textbook_title=textbook_title, textbook_description=textbook_description)
+            return render_template('search.html', textbook_id=textbook_id, textbook_title=textbook_title, textbook_description=textbook_description)
         else:
             return render_template('notFound.html', textbook_id=textbook_id)
 
