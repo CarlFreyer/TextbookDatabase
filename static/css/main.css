@@ -152,6 +152,7 @@ h4{
     width: 90vw;
     display: inline-flex;
     justify-content: space-between;
+    align-items: center;
     margin-right: 5vw;
     margin-left: 5vw;
     flex-wrap: wrap;
