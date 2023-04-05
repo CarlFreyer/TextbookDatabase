@@ -19,7 +19,7 @@ form {
 }
 
 #navbar{
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 50px;
     display: inline-flex;
@@ -132,4 +132,13 @@ th{
 
 h4{
     font-weight: bolder !important;
+}
+
+.titleBar{
+    width: 98vw;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    flex-wrap: wrap;
 }

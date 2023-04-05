@@ -54,13 +54,20 @@ def click():
         return render_template('notFound.html', textbook_id=textbook_id)
     conn = sqlite3.connect('maintextbooks.db')
     c = conn.cursor()
-    c.execute('SELECT * FROM textbooks WHERE title = ?', (textbook_id,))
+    c.execute('SELECT isbn, title, publisher, pubYear, dei, course, cost FROM textbooks WHERE title = ?', (textbook_id,))
     row = c.fetchone()
+    c.execute('SELECT authorFirst, authorLast, university, education, gender, ethnicity, link FROM authors WHERE isbn = ?', (row[0],))
+    authors = [{'first': row[0], 'last': row[1], 'university': row[2], 'education': row[3], 'gender': row[4], 'ethnicity': row[5], 'link': row[6]} for row in c.fetchall()]
     conn.close()
     if row is not None:
-        textbook_title = row[1]
-        textbook_description = row[2]
-        return render_template('textbook.html', textbook_id=textbook_id, textbook_title=textbook_title, textbook_description=textbook_description)
+        isbn = row[0]
+        title = row[1]
+        publisher = row[2]
+        year = row[3]
+        dei = row[4]
+        course = row[5]
+        cost = row[6]
+        return render_template('textbook.html', isbn=isbn, title=title, pub=publisher, year=year, dei = dei, course = course, cost = cost, authors = authors)
     else:
         return render_template('notFound.html', textbook_id=textbook_id)
 

@@ -20,7 +20,54 @@
         <input type="submit" value="Submit" class="submit">
     </form>
     </div> 
-    <h1>Textbook {{ textbook_title }}</h1>
-    <p>{{ textbook_description }}</p>
+    <div class="titleBar">
+    <h1>{{ title }} - {{ pub }} {{ year }}</h1>
+    <h2>{{ isbn }}</h1>
+    </div>
+    <div class="searchCon">
+    <table id="searchTable">
+        <tr class="head">
+            <th>
+                <p>Authors</p>
+            </th>
+        </tr>
+        <tr class="top">
+            <th>
+                <p>Name</p>
+            </th>
+            <th>
+                <p>University of Residence</p>
+            </th>
+            <th>
+                <p>University of Bachelors Degree</p>
+            </th>
+            <th>
+                <p>Gender</p>
+            </th>
+            <th>
+                <p>Ethnicity</p>
+            </th>
+        </tr>
+        {% for author in authors %}
+        <tr>
+            <th>
+                <p><a href="{{author.link}}">{{author.first}} {{author.last}}</a></p>
+            </th>
+            <th>
+                <p>{{author.university}}</p>
+            </th>
+            <th>
+                <p>{{author.education}}</p>
+            </th>
+            <th>
+                <p>{{author.gender}}</p>
+            </th>
+            <th>
+                <p>{{author.ethnicity}}</p>
+            </th>
+        </tr>
+        {% endfor %}
+        </div>
+    </table>
 </body>
 </html>
