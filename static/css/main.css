@@ -143,3 +143,32 @@ h4{
     margin-left: 5vw;
     flex-wrap: wrap;
 }
+
+.textText{
+    width: 90vw;
+    font-size: 1.5rem;
+    margin-left: 5vw;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.textText div{
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #DDDDDD;
+}
+
+#cost{
+    width: 8vw;
+}
+
+.notFound{
+    margin-left: 5vw;
+    margin-top: 50px;
+}
+
+.notFound h1 {
+    font-size: 4rem;
+}

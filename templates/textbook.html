@@ -1,76 +1,84 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='logoBrown.png') }}">
     <title>Textbook Information</title>
 </head>
+
 <body>
     <div id="navbar"><img src="{{ url_for('static', filename='logo.png') }}" />
         <h3><a class="navURL" href="./">Textbook Diversity Database</a></h3>
         <h4><a class="navURL" href="/list">All Textbooks</a></h4>
     </div>
     <div class="formCon">
-    <form action="/search" method="post">
-        <input type="text" name="textbook_id" class="searchbar" placeholder="Textbook Search"/><br>
-        <input type="submit" value="Submit" class="submit">
-    </form>
-    <br>
-    <br>
-    <form action="/searchClass" method="post">
-        <input type="text" name="class_id" class="searchbar" placeholder="Class Search"/><br>
-        <input type="submit" value="Submit" class="submit">
-    </form>
-    </div> 
+        <form action="/search" method="post">
+            <input type="text" name="textbook_id" class="searchbar" placeholder="Textbook Search" /><br>
+            <input type="submit" value="Submit" class="submit">
+        </form>
+        <br>
+        <br>
+        <form action="/searchClass" method="post">
+            <input type="text" name="class_id" class="searchbar" placeholder="Class Search" /><br>
+            <input type="submit" value="Submit" class="submit">
+        </form>
+    </div>
     <div class="titleBar">
-    <h1>{{ title }} - {{ pub }} {{ year }}</h1>
-    <h2>{{ isbn }}</h1>
+        <h1>{{ title }} - {{ pub }} {{ year }}</h1>
+        <h2>{{ isbn }}</h1>
+    </div>
+    <div class="textText">
+        <div><p>Course</p><h2>{{course}}</h2></div>
+        <div><p id="cost">Cost</p><h2>${{cost}}</h2></div>
+        <div><p>Diversity Mentioned in Abstract</p><h2>{{dei}}</h2></div>
     </div>
     <div class="searchCon">
-    <table id="searchTable">
-        <tr class="head">
-            <th colspan="5">
-                <h3>Authors</h3>
-            </th>
-        </tr>
-        <tr class="top">
-            <th>
-                <h4>Name</h4>
-            </th>
-            <th>
-                <h4>University of Residence</h4>
-            </th>
-            <th>
-                <h4>University of Bachelors Degree</h4>
-            </th>
-            <th>
-                <h4>Gender</h4>
-            </th>
-            <th>
-                <h4>Ethnicity</h4>
-            </th>
-        </tr>
-        {% for author in authors %}
-        <tr>
-            <th>
-                <p><a href="{{author.link}}">{{author.first}} {{author.last}}</a></p>
-            </th>
-            <th>
-                <p>{{author.university}}</p>
-            </th>
-            <th>
-                <p>{{author.education}}</p>
-            </th>
-            <th>
-                <p>{{author.gender}}</p>
-            </th>
-            <th>
-                <p>{{author.ethnicity}}</p>
-            </th>
-        </tr>
-        {% endfor %}
-        </div>
+        <table id="searchTable">
+            <tr class="head">
+                <th colspan="5">
+                    <h3>Authors</h3>
+                </th>
+            </tr>
+            <tr class="top">
+                <th>
+                    <h4>Name</h4>
+                </th>
+                <th>
+                    <h4>University of Residence</h4>
+                </th>
+                <th>
+                    <h4>University of Bachelors Degree</h4>
+                </th>
+                <th>
+                    <h4>Gender</h4>
+                </th>
+                <th>
+                    <h4>Ethnicity</h4>
+                </th>
+            </tr>
+            {% for author in authors %}
+            <tr>
+                <th>
+                    <p><a href="{{author.link}}">{{author.first}} {{author.last}}</a></p>
+                </th>
+                <th>
+                    <p>{{author.university}}</p>
+                </th>
+                <th>
+                    <p>{{author.education}}</p>
+                </th>
+                <th>
+                    <p>{{author.gender}}</p>
+                </th>
+                <th>
+                    <p>{{author.ethnicity}}</p>
+                </th>
+            </tr>
+            {% endfor %}
+    </div>
     </table>
 </body>
+
 </html>
