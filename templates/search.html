@@ -10,17 +10,13 @@
     <div id="navbar"><img src="{{ url_for('static', filename='logo.png') }}" />
         <h3><a class="navURL" href="./">Textbook Diversity Database</a></h3>
         <h4><a class="navURL" href="/list">All Textbooks</a></h4>
-    </div>    <div class="formCon">
-    <form action="/search" method="post">
-        <input type="text" name="textbook_id" class="searchbar" placeholder="Textbook Search"/><br>
-        <input type="submit" value="Submit" class="submit">
-    </form>
-    <br>
-    <br>
-    <form action="/searchClass" method="post">
-        <input type="text" name="class_id" class="searchbar" placeholder="Class Search"/><br>
-        <input type="submit" value="Submit" class="submit">
-    </form>
+    </div>    
+    <div class="formCon">
+        <form action="/search" method="post">
+            <input type="text" name="textbook_id" class="searchbar" placeholder="Search for titles, ISBNs, or courses" /><br>
+            <input type="submit" value="Submit" class="submit">
+        </form>
+    </div>
     </div> 
     <div class="searchCon">
     <table id="searchTable">

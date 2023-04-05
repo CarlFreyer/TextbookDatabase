@@ -39,7 +39,7 @@ def search():
         if textbook_id == "all":
             c.execute('SELECT title, course, isbn FROM textbooks')
         else:
-            c.execute('SELECT title, course, isbn FROM textbooks WHERE title = ?', (textbook_id,))
+            c.execute('SELECT title, course, isbn FROM search WHERE search match ?', (textbook_id,))
         textbooks = [{'title': row[0], 'course': row[1], 'isbn': row[2]} for row in c.fetchall()]
         conn.close()
         if len(textbooks) is not 0:
