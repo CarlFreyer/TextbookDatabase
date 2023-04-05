@@ -15,7 +15,8 @@
     </div>
     <div class="formCon">
         <form action="/search" method="post">
-            <input type="text" name="textbook_id" class="searchbar" placeholder="Search for titles, ISBNs, or courses" /><br>
+            <input type="text" name="textbook_id" class="searchbar"
+                placeholder="Search for titles, ISBNs, or courses" /><br>
             <input type="submit" value="Submit" class="submit">
         </form>
     </div>
@@ -24,9 +25,29 @@
         <h2>{{ isbn }}</h1>
     </div>
     <div class="textText">
-        <div><p>Course</p><h2>{{course}}</h2></div>
-        <div><p id="cost">Cost</p><h2>${{cost}}</h2></div>
-        <div><p>Diversity Mentioned in Abstract</p><h2>{{dei}}</h2></div>
+        <div>
+            <p>Course</p>
+            <h2>{{course}}</h2>
+        </div>
+        <div>
+            <p id="cost">Cost</p>
+            <h2>${{cost}}</h2>
+        </div>
+        <div>
+            <p>Diversity Mentioned in Abstract</p>
+            <h2>{{dei}}</h2>
+        </div>
+    </div>
+    <div class="barCon">
+        <h2>Author Gender Makeup</h2>
+        <div class="genderBar">
+            <div id="male" style="width: {{maleCount}}%; opacity: calc({{maleCount}} * 100)">
+                <h3>Male - {{maleCount}}%</h3>
+            </div>
+            <div id="female" style="width: {{femaleCount}}%; opacity: calc({{femaleCount}} * 100)">
+                <h3>Female - {{femaleCount}}%</h3>
+            </div>
+        </div>
     </div>
     <div class="searchCon">
         <table id="searchTable">

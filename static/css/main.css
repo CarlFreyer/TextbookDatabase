@@ -186,3 +186,37 @@ h4{
 .notFound h1 {
     font-size: 4rem;
 }
+
+.barCon{
+    text-align: center;
+    margin-top: 30px;
+    height: 150px;
+    width: 75vw;
+    margin-left: 12.5vw;
+    background-color: #DDDDDD;
+}
+
+.barCon h2{
+    padding-top: 10px;
+}
+
+.genderBar{
+    width: 73vw;
+    display: inline-flex;
+    text-align: center;
+    height: 80px;
+}
+
+#male{
+    background-color: #05a3ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#female{
+    color: white;
+    background-color: #f7007a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
