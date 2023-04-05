@@ -8,13 +8,13 @@ def home():
     conn = sqlite3.connect('maintextbooks.db')
     c = conn.cursor()
     c.execute('SELECT title, cost FROM textbooks order by cost desc')
-    cost = [{'title': row[0], 'cost': row[1]} for row in c.fetchmany(10)]
+    cost = [{'title': row[0], 'cost': row[1]} for row in c.fetchmany(8)]
     c.execute("select title, count(*) as genderCount from (select title, gender from textbooks natural join authors where gender='female') group by title order by count() desc")
-    gender = [{'title': row[0], 'femaleNum': row[1]} for row in c.fetchmany(10)]
+    gender = [{'title': row[0], 'femaleNum': row[1]} for row in c.fetchmany(8)]
     c.execute("select title, course from textbooks left outer join (select * from authors where gender = 'female') b on textbooks.isbn=b.isbn where authorFirst is null;")
-    onlyMale = [{'title': row[0], 'course': row[1]} for row in c.fetchmany(10)]
+    onlyMale = [{'title': row[0], 'course': row[1]} for row in c.fetchmany(8)]
     c.execute("select university, count(*) as uniCount from (select title, university from textbooks natural join authors) group by university order by count() desc")
-    university = [{'university': row[0], 'uniCount': row[1]} for row in c.fetchmany(10)]
+    university = [{'university': row[0], 'uniCount': row[1]} for row in c.fetchmany(8)]
     conn.close()
     return render_template('home.html', cost=cost, gender = gender, university = university, onlyMale = onlyMale)
 
