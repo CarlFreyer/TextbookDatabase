@@ -8,7 +8,7 @@ def home():
     conn = sqlite3.connect('maintextbooks.db')
     c = conn.cursor()
     c.execute('SELECT title, cost FROM textbooks order by cost desc')
-    cost = [{'title': row[0], 'cost': row[1]} for row in c.fetchmany(8)]
+    cost = [{'title': row[0], 'cost': '{0:.2f}'.format(row[1])} for row in c.fetchmany(8)]
     c.execute("select title, count(*) as genderCount from (select title, gender from textbooks natural join authors where gender='female') group by title order by count() desc")
     gender = [{'title': row[0], 'femaleNum': row[1]} for row in c.fetchmany(8)]
     c.execute("select title, course from textbooks left outer join (select * from authors where gender = 'female') b on textbooks.isbn=b.isbn where authorFirst is null;")
@@ -81,7 +81,7 @@ def click():
         year = row[3]
         dei = row[4]
         course = row[5]
-        cost = row[6]
+        cost = '{0:.2f}'.format(row[6])
         return render_template('textbook.html', isbn=isbn, title=title, pub=publisher, year=year, dei = dei, course = course, cost = cost, authors = authors)
     else:
         return render_template('notFound.html', textbook_id=textbook_id)
