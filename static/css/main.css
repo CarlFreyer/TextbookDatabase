@@ -26,6 +26,7 @@ form {
     flex-direction:  row;
     align-items: center;
     justify-content: center;
+    gap: 30px;
     background-color: #582d0f;
     color: white;
 }
@@ -41,7 +42,7 @@ form {
 }
 
 img {
-    height: 90%;
+    height: 80%;
     margin-right: 20px;
 }
 
@@ -135,10 +136,10 @@ h4{
 }
 
 .titleBar{
-    width: 98vw;
+    width: 90vw;
     display: inline-flex;
     justify-content: space-between;
-    margin-right: 1vw;
-    margin-left: 1vw;
+    margin-right: 5vw;
+    margin-left: 5vw;
     flex-wrap: wrap;
 }

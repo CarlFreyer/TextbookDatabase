@@ -7,7 +7,10 @@
     <title>Textbook Information</title>
 </head>
 <body>
-    <div id="navbar"><img src="{{ url_for('static', filename='logo.png') }}"/><h3><a class="navURL" href="./">Textbook Diversity Database</a></h3></div>
+    <div id="navbar"><img src="{{ url_for('static', filename='logo.png') }}" />
+        <h3><a class="navURL" href="./">Textbook Diversity Database</a></h3>
+        <h4><a class="navURL" href="/list">All Textbooks</a></h4>
+    </div>
     <div class="formCon">
     <form action="/search" method="post">
         <input type="text" name="textbook_id" class="searchbar" placeholder="Textbook Search"/><br>
