@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logoBrown.png') }}">
     <title>Textbook Information</title>
 </head>
 <body>
-    <div id="navbar"><h3><a class="navURL" href="./">Textbook Diversity Database</a></h3></div>
+    <div id="navbar"><img src="{{ url_for('static', filename='logo.png') }}"/><h3><a class="navURL" href="./">Textbook Diversity Database</a></h3></div>
     <div class="formCon">
     <form action="/search" method="post">
         <input type="text" name="textbook_id" class="searchbar" placeholder="Textbook Search"/><br>
@@ -28,17 +29,19 @@
         </tr>
         <tr class="top">
             <th><h4>Textbook</h4></th>
+            <th><h4>ISBN</h4></th>
             <th><h4>Course</h4></th>
         </tr>
          {% for textbook in textbooks %}
         <tr>
             <th>
-                <p><a href="/textbook?bookName={{textbook.textbook_title}}">{{textbook.title}}</a></p>
+                <p><a href="/textbook?bookName={{textbook.title}}">{{textbook.title}}</a></p>
+            </th>
+            <th>
+                <p>{{textbook.isbn}}</p>
             </th>
             <th>
                 <p>{{textbook.course}}</p>
-            </th>
-            <th>
             </th>
         </tr>
         {% endfor %}
