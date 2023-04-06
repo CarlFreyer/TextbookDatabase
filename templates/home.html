@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='logoBrown.png') }}">
-    <title>Textbook Information</title>
+    <title>Textbook Diversity Database</title>
 </head>
+
 <body>
-    <div id="navbar"><img src="{{ url_for('static', filename='logo.png') }}"/><h3><a class="navURL" href="./">Textbook Diversity Database</a></h3></div>
+    <div id="navbar"><img src="{{ url_for('static', filename='logo.png') }}" />
+        <h3><a class="navURL" href="./">Textbook Diversity Database</a></h3>
+        <h4><a class="navURL" href="/list">All Textbooks</a></h4>
+    </div>
     <div class="formCon">
-    <form action="/search" method="post">
-        <input type="text" name="textbook_id" class="searchbar" placeholder="Textbook Search"/><br>
-        <input type="submit" value="Submit" class="submit">
-    </form>
-    <br>
-    <br>
-    <form action="/course" method="post">
-        <input type="text" name="class_id" class="searchbar" placeholder="Class Search"/><br>
-        <input type="submit" value="Submit" class="submit">
-    </form>
+        <form action="/search" method="post">
+            <input type="text" name="textbook_id" class="searchbar" placeholder="Search for titles, ISBNs, or courses" /><br>
+            <input type="submit" value="Submit" class="submit">
+        </form>
     </div>
     <div class="tableCon">
         <table>
             <tr class="head">
-                <th class="head"><h3>Most Female Authors</h3></th>
+                <th class="head" colspan="2">
+                    <h3>Most Female Authors</h3>
+                </th>
             </tr>
             <tr class="top">
-                <th><h4>Textbook</h4></th>
-                <th><h4># of Female Authors</h4></th>
+                <th>
+                    <h4>Textbook</h4>
+                </th>
+                <th>
+                    <h4># of Female Authors</h4>
+                </th>
             </tr>
-             {% for female in gender %}
+            {% for female in gender %}
             <tr>
                 <th>
                     <p><a href="/textbook?bookName={{female.title}}">{{female.title}}</a></p>
@@ -42,13 +47,19 @@
         </table>
         <table>
             <tr class="head">
-                <th class="head"><h3>Most Common Universities</h3></th>
+                <th class="head" colspan="2">
+                    <h3>Most Common Universities</h3>
+                </th>
             </tr>
             <tr class="top">
-                <th><h4>Universities</h4></th>
-                <th><h4># of Authors</h4></th>
+                <th>
+                    <h4>Universities</h4>
+                </th>
+                <th>
+                    <h4># of Authors</h4>
+                </th>
             </tr>
-             {% for textbook in university %}
+            {% for textbook in university %}
             <tr>
                 <th>
                     <p>{{textbook.university}}</p>
@@ -61,13 +72,19 @@
         </table>
         <table>
             <tr class="head">
-                <th class="head"><h3>Textbooks Without Female Authors</h3></th>
+                <th class="head" colspan="2">
+                    <h3>Textbooks Without Female Authors</h3>
+                </th>
             </tr>
             <tr class="top">
-                <th><h4>Textbook</h4></th>
-                <th><h4>Course</h4></th>
+                <th>
+                    <h4>Textbook</h4>
+                </th>
+                <th>
+                    <h4>Course</h4>
+                </th>
             </tr>
-             {% for textbook in onlyMale %}
+            {% for textbook in onlyMale %}
             <tr>
                 <th>
                     <p><a href="/textbook?bookName={{textbook.title}}">{{textbook.title}}</a></p>
@@ -80,23 +97,33 @@
         </table>
         <table>
             <tr class="head">
-                <th class="head"><h3>Most Expensive Textbooks</h3></th>
+                <th class="head" colspan="2">
+                    <h3>Most Expensive Textbooks</h3>
+                </th>
             </tr>
             <tr class="top">
-                <th><h4>Textbook</h4></th>
-                <th><h4>New Hardcover Cost</h4></th>
+                <th>
+                    <h4>Textbook</h4>
+                </th>
+                <th>
+                    <h4>New Hardcover Cost</h4>
+                </th>
             </tr>
-             {% for textbook in cost %}
+            {% for textbook in cost %}
             <tr>
                 <th>
                     <p><a href="/textbook?bookName={{textbook.title}}">{{textbook.title}}</a></p>
                 </th>
                 <th>
-                    <p>{{textbook.cost}}</p>
+                    <p>${{textbook.cost}}</p>
                 </th>
             </tr>
             {% endfor %}
         </table>
     </div>
+    <div class="iframeCon">
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1ojkVc_Ej90EDQAgSYM-JxiMtsn3Vo8E&ehbc=2E312F"></iframe>
+        </div>
 </body>
+
 </html>
