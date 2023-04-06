@@ -81,8 +81,9 @@ def click():
     record = c.fetchone()
     unknownCount = int(record[1])
     totalCount = unknownCount + maleCount + femaleCount
-    femaleCount = '{0:.2f}'.format((femaleCount/totalCount) * 100)
-    maleCount = '{0:.2f}'.format((maleCount/totalCount) * 100)
+    if totalCount != 0:
+        femaleCount = '{0:.2f}'.format((femaleCount/totalCount) * 100)
+        maleCount = '{0:.2f}'.format((maleCount/totalCount) * 100)
     c.execute('SELECT authorFirst, authorLast, university, education, gender, ethnicity, link FROM authors WHERE isbn = ?', (row[0],))
     authors = [{'first': row[0], 'last': row[1], 'university': row[2], 'education': row[3], 'gender': row[4], 'ethnicity': row[5], 'link': row[6]} for row in c.fetchall()]
     conn.close()
