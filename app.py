@@ -99,3 +99,6 @@ def click():
     else:
         return render_template('notFound.html', textbook_id=textbook_id)
 
+@app.route('/aboutUs', methods=['GET', 'POST'])
+def aboutUs():
+    return render_template('aboutUs.html')

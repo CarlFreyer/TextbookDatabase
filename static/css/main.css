@@ -18,12 +18,11 @@ form {
     justify-content: center;
 }
 
-#navbar{
+#navbar {
     position: fixed;
     width: 100vw;
     height: 50px;
     display: inline-flex;
-    flex-direction:  row;
     align-items: center;
     justify-content: center;
     gap: 30px;
@@ -232,3 +231,10 @@ h4{
     width: 100%;
     height: 900px;
 }
+
+.bars-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+  
